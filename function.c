@@ -9,12 +9,15 @@
 
 void _push(stack_t **node, unsigned int __attribute__((unused)) line_number)
 {
+	stack_t *ptr;
+
 	if (head == NULL)
 		head = *node;
 	else
 	{
-		(*node)->next = head;
-		head->prev = *node;
+		ptr = head;
+		(*node)->next = ptr;
+		ptr->prev = *node;
 		head = *node;
 	}
 }
@@ -27,18 +30,19 @@ void _push(stack_t **node, unsigned int __attribute__((unused)) line_number)
  */
 
 
-void _pall(stack_t **node, unsigned int line_number)
+void _pall(stack_t **node, unsigned int __attribute__((unused)) line_number)
 {
 	stack_t *ptr;
 
-	if (node == NULL)
+	(void)node;
+	if (head == NULL)
 		printf("Underflow!\n");
 	else
 	{
-		ptr = *node;
+		ptr = head;
 		while (ptr)
 		{
-			printf("%d",ptr->n);
+			printf("%d\n",ptr->n);
 			ptr = ptr->next;
 		}
 	}

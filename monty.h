@@ -39,10 +39,11 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int exec(char *, ...);
+int exec(char *, int, unsigned int);
 char **split(char *txt, char *sep);
 void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
+char **_strtok(char *argv, char **table);
 stack_t *add_dnodeint(stack_t **head, const int n);
 
 #endif
