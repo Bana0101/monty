@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 /**
  * add_dnodeint - add not at beginning of dlistint_t list
  *@head: head
@@ -6,11 +6,11 @@
  * Return: address of new element
  *
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+stack_t *add_dnodeint(stack_t **head, const int n)
 {
-	dlistint_t *node;
+	stack_t *node;
 
-	node = malloc(sizeof(dlistint_t));
+	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 		return (NULL);
 	node->n = n;

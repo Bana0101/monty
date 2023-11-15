@@ -1,8 +1,12 @@
 #ifndef HEADER
 #define HEADER
+
 #include <stdio.h>
 #include <stdlib.h>
-# include <string.h>
+#include <string.h>
+#include <stdarg.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -18,6 +22,9 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
+extern stack_t *head;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -31,6 +38,11 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+int exec(char *, ...);
 char **split(char *txt, char *sep);
-dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+void _push(stack_t **, unsigned int);
+void _pall(stack_t **, unsigned int);
+stack_t *add_dnodeint(stack_t **head, const int n);
+
 #endif
