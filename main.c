@@ -1,4 +1,5 @@
 #include "monty.h"
+stack_t *head = NULL;
 /**
  * main - Entry point
  * ac - number of args
@@ -8,8 +9,9 @@
 int main(int ac, char **av)
 {
 	FILE *file;
-	int line_count = 0, e;
+	unsigned int line_count = 0;
 	char **cmd, line[200];
+	int i = 0;
 
 	if (ac != 2)
 	{
@@ -28,12 +30,17 @@ int main(int ac, char **av)
 		cmd = split(line, " ");
 		if (cmd[0][0] == '\n')
 		{
-			printf("blank line\n");
+			free(cmd);
 			continue;
 		}
-		e = exec(cmd[0], atoi(cmd[1]));
+		i = 0;
+		while (cmd[i++])
+			;
+		if (i <= 2 && strcmp(cmd[1], "\n") == 0)
+			exec(cmd[0], 0, line_count);
+		else
+			exec(cmd[0], atoi(cmd[1]), line_count);
 		free(cmd);
 	}
-	printf("%d lines executed.\n", line_count);
 	return (0);
 }
