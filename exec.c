@@ -9,12 +9,12 @@ int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
 {
 	int i = 0;
 	stack_t *node;
-/*	instruction_t inst[] = {
+	instruction_t inst[] = {
 		{"push", _push},
 		{"pall", _pall},
 		{NULL, NULL}
 	};
-*/
+
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
@@ -28,9 +28,10 @@ int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
 			cmd[i] = '\0';
 		i++;
 	}
-	if (strcmp(cmd, "push") == 0)
-		_push(&node, line_number);
-	if (strcmp(cmd, "pall") == 0)
-		_pall(&node, line_number);
+	for (i = 0; inst[i].opcode; i++)
+	{
+		if (strcmp(inst[i].opcode, cmd) == 0)
+			inst[i].f(&node, line_number);
+	}
 	return (0);
 }
