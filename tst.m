@@ -4,6 +4,8 @@ push 2
 push   1 
                                        
 push   0         mszehrfliuehrl
-pall 
+                                                                                       pall 
                        push                   7               
-         pall                 90 
+                                                                pall                 90 
+lkqejfkjqhefkjhqez
+pall

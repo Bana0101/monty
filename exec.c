@@ -28,9 +28,21 @@ int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
 			cmd[i] = '\0';
 		i++;
 	}
+	/*
 	if (strcmp(cmd, "push") == 0)
 		_push(&node, line_number);
 	if (strcmp(cmd, "pall") == 0)
 		_pall(&node, line_number);
+		*/
+	switch (cmd)
+	{
+		case "push":
+			_push(&node, line_number);
+			break;
+
+		case "pall":
+			_pall(&node, line_number);
+			break;
+	}
 	return (0);
 }
