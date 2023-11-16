@@ -1,0 +1,3 @@
+* in main.c line 39 - 46: in case of push with no arg, 
+	code will just exec with value 0 instead of raising an error.
+
