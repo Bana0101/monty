@@ -5,9 +5,10 @@
  *@n: number
  * Return: 0 on sucess.
  */
-int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
+int exec(char *cmd, char *num, unsigned int __attribute__((unused)) line_number)
 {
-	int i = 0;
+	int found = 0;
+	int n, i = 0;
 	stack_t *node;
 	instruction_t inst[] = {
 		{"push", _push},
@@ -19,23 +20,51 @@ int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
 */		{NULL, NULL}
 	};
 
-	node = malloc(sizeof(stack_t));
-	if (node == NULL)
-	{
-		printf("Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-	node->n = n;
 	while (cmd[i])
 	{
 		if (cmd[i] == '\n')
 			cmd[i] = '\0';
 		i++;
 	}
+	if (strcmp(cmd, "push") == 0)
+	{
+		if (num == NULL || (atoi(num) == 0 && strlen(num) > 1))
+		{
+			printf("L<%d>: usage: push integer\n", line_number);
+			return (1);
+		} else
+		{
+			found = 1;
+			n = atoi(num);
+			node = malloc(sizeof(stack_t));
+			if (node == NULL)
+			{
+				printf("Error: malloc failed");
+				return (1);
+			}
+			node->n = n;
+			inst[0].f(&node, line_number);
+		}
+	}
+	if (strcmp(cmd, "pall") == 0)
+	{
+		found = 1;
+		inst[1].f(NULL, line_number);
+	}
+	/*
 	for (i = 0; inst[i].opcode; i++)
 	{
 		if (strcmp(inst[i].opcode, cmd) == 0)
+		{
+			found = 1;
 			inst[i].f(&node, line_number);
+		}
+	}
+	*/
+	if (!found)
+	{
+		printf("L<%d>: unknown instruction <%s>\n", line_number, cmd);
+		return (1);
 	}
 	return (0);
 }

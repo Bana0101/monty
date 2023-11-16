@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	FILE *file;
 	unsigned int line_count = 0;
 	char **cmd, line[200];
-	int i = 0;
+	int i = 0, j = 0, e;
 
 	if (ac != 2)
 	{
@@ -30,23 +30,28 @@ int main(int ac, char **av)
 		cmd = split(line, " ");
 		if (cmd[0][0] == '\n')
 		{
-			free(cmd);
 			continue;
 		}
 		i = 0;
-		while (cmd[i++])
-			;
-		if (i <= 2 && strcmp(cmd[1], "\n") == 0)
+		while (cmd[i])
 		{
-			printf("im in the 1\n");
-			exec(cmd[0], 0, line_count);
+			if (cmd[i][0] == '\n')
+				j = 1;
+			if (cmd[i][strlen(cmd[i]) - 1] == '\n')
+				cmd[i][strlen(cmd[i]) - 1] = '\0';
+			i++;
+		}
+		if (i - j <= 1)
+		{
+			e = exec(cmd[0], NULL, line_count);
 		}
 		else
 		{
-			printf("im in the 2\n");
-			exec(cmd[0], atoi(cmd[1]), line_count);
+			e = exec(cmd[0], cmd[1], line_count);
 		}
 		free(cmd);
+		if (e)
+			exit(EXIT_FAILURE);
 	}
 	return (0);
 }
