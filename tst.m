@@ -5,5 +5,4 @@ push   1
                                        
 push   0         mszehrfliuehrl
 pall 
-                       push                   7               
-         pall                 90 
+pint 9

@@ -12,7 +12,11 @@ int exec(char *cmd, int n, unsigned int __attribute__((unused)) line_number)
 	instruction_t inst[] = {
 		{"push", _push},
 		{"pall", _pall},
-		{NULL, NULL}
+		{"pint", _pint},
+/*		{"pop", _pop},
+		{"swap", _swap},
+		{"add", _add},
+*/		{NULL, NULL}
 	};
 
 	node = malloc(sizeof(stack_t));

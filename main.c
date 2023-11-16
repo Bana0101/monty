@@ -37,9 +37,15 @@ int main(int ac, char **av)
 		while (cmd[i++])
 			;
 		if (i <= 2 && strcmp(cmd[1], "\n") == 0)
+		{
+			printf("im in the 1\n");
 			exec(cmd[0], 0, line_count);
+		}
 		else
+		{
+			printf("im in the 2\n");
 			exec(cmd[0], atoi(cmd[1]), line_count);
+		}
 		free(cmd);
 	}
 	return (0);

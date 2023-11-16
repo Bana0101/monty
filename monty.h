@@ -43,6 +43,10 @@ int exec(char *, int, unsigned int);
 char **split(char *txt, char *sep);
 void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
+void _pint(stack_t **, unsigned int);
+/*void _pop(stack_t **, unsigned int);*/
+/*void _swap(stack_t **, unsigned int);*/
+/*void _add(stack_t **, unsigned int);*/
 char **_strtok(char *argv, char **table);
 stack_t *add_dnodeint(stack_t **head, const int n);
 
