@@ -2,11 +2,7 @@ push 2
          push        8         
  push          5   
 push   1 
-                                       
 push   0         mszehrfliuehrl
-                                                                                       pall 
+                                                                                       pall 9 
                        push                   7               
-                                                                pall                 90 
-lkqejfkjqhefkjhqez
-pall
-pint 9
+                                                                pall 9 
