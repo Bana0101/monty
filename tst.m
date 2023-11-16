@@ -9,3 +9,4 @@ push   0         mszehrfliuehrl
                                                                 pall                 90 
 lkqejfkjqhefkjhqez
 pall
+pint 9
