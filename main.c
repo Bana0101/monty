@@ -2,8 +2,8 @@
 stack_t *head = NULL;
 /**
  * main - Entry point
- * ac - number of args
- * av - arguments passed to main
+ *@ac: number of args
+ *@av: arguments passed to main
  * Return: 0 on success.
  */
 int main(int ac, char **av)
@@ -25,7 +25,7 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	while (fgets(line, sizeof(line), file) != NULL)
-        {
+	{
 		line_count++;
 		cmd = split(line, " ");
 		if (cmd[0][0] == '\n')
