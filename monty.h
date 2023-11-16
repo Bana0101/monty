@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
 #include <stdarg.h>
 
@@ -39,11 +40,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int exec(char *, char *, unsigned int);
+int exec(char **, unsigned int);
 char **split(char *txt, char *sep);
 void _push(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
 void _pint(stack_t **, unsigned int);
+void _pop(stack_t **, unsigned int);
+void _nop(stack_t **, unsigned int);
 /*void _pop(stack_t **, unsigned int);*/
 /*void _swap(stack_t **, unsigned int);*/
 /*void _add(stack_t **, unsigned int);*/
