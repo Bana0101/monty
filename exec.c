@@ -5,7 +5,7 @@ int is_number(char *str);
 /**
  * exec - execute command
  *@cmd: command
- *@n: number
+ *@line_number: number
  * Return: 0 on sucess.
  */
 
@@ -19,9 +19,7 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"nop", _nop},
-/*		{"swap", _swap},
-		{"add", _add},
-*/		{NULL, NULL}
+		{NULL, NULL}
 	};
 
 	node = malloc(sizeof(stack_t));
@@ -32,12 +30,12 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 	}
 	if (strcmp(cmd[0], "push") == 0)
 	{
-/*		if (!is_number(cmd[1]))
+		if (is_number(cmd[1]) == 0)
 		{
-			printf("L%u: usage: push integer", line_number);
+			printf("L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-*/		node->n = atoi(cmd[1]);
+		node->n = atoi(cmd[1]);
 	}
 	while (cmd[0][i])
 	{
@@ -70,13 +68,18 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 
 int is_number(char *str)
 {
-	int i = 0;
+	int i = 0, j;
 
 	if (str == NULL)
 		return (0);
-	while(str[i])
+	for (j = 0; str[j]; j++)
 	{
-		if (!isdigit(str[i]))
+		if (str[j] == '\n')
+			str[j] = '\0';
+	}
+	while (str[i])
+	{
+		if (!isdigit(str[i++]))
 			return (0);
 	}
 	return (1);
