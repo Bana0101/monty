@@ -13,8 +13,9 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
-/*		{"pop", _pop},
-		{"swap", _swap},
+		{"pop", _pop},
+		{"nop", _nop},
+/*		{"swap", _swap},
 		{"add", _add},
 */		{NULL, NULL}
 	};
