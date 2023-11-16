@@ -40,9 +40,7 @@ void _pall(stack_t **node, unsigned int __attribute__((unused)) line_number)
 	stack_t *ptr;
 
 	(void)node;
-	if (head == NULL)
-		printf("Underflow!\n");
-	else
+	if (head != NULL)
 	{
 		ptr = head;
 		while (ptr)
