@@ -63,7 +63,7 @@ void _pint(stack_t __attribute__((unused)) **node, unsigned int line_number)
 {
 	if (head == NULL)
 	{
-		printf("L%u: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", head->n);
@@ -81,7 +81,7 @@ void _pop(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	stack_t *pop;
 
 	if (head == NULL)
-		printf("L%u: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack", line_number);
 	else
 	{
 		pop = head;
