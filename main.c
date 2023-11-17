@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	FILE *file;
 	unsigned int line_count = 0;
 	char **cmd, line[200];
-	int e;
+	int e, i;
 
 	if (ac != 2)
 	{
@@ -30,10 +30,14 @@ int main(int ac, char **av)
 		cmd = split(line, " ");
 		if (cmd[0][0] == '\n')
 		{
+			for (i = 0; cmd[i] != NULL; i++)
+				free(cmd[i]);
 			free(cmd);
 			continue;
 		}
 		e = exec(cmd, line_count);
+		for (i = 0; cmd[i] != NULL; i++)
+			free(cmd[i]);
 		free(cmd);
 		if (e)
 			exit(EXIT_FAILURE);

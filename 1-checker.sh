@@ -9,6 +9,7 @@ NC='\033[0m' # No Color
 montyBytes="push 1
 push 2
 push 3
+nop
 pall"
 
 # make test case file:
