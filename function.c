@@ -67,6 +67,7 @@ void _pint(stack_t __attribute__((unused)) **node, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", head->n);
+	fflush(stdout);
 }
 
 /**
