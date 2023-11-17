@@ -90,7 +90,8 @@ void _pop(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	{
 		pop = head;
 		head = head->next;
-		head->prev = NULL;
+		if (head != NULL)
+			head->prev = NULL;
 		free(pop);
 	}
 }
