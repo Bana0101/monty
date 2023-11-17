@@ -20,6 +20,8 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{"pop", _pop},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
 		{"nop", _nop},
 		{NULL, NULL}
 	};
