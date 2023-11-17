@@ -32,7 +32,7 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 			fprintf(stderr, "Error: malloc failed\n");
 			return (1);
 		}
-		if ((is_number(cmd[1]) == 0 && atoi(cmd[1]) == 0) || cmd[1][0] == '\0')
+		if (is_number(cmd[1]) == 0 || cmd[1][0] == '\0')
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(node);
@@ -80,6 +80,8 @@ int is_number(char *str)
 		if (str[j] == '\n')
 			str[j] = '\0';
 	}
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 	{
 		if (!isdigit(str[i]))
