@@ -52,5 +52,6 @@ void _nop(stack_t **, unsigned int);
 /*void _add(stack_t **, unsigned int);*/
 char **_strtok(char *argv, char **table);
 stack_t *add_dnodeint(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
 
 #endif

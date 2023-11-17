@@ -42,5 +42,7 @@ int main(int ac, char **av)
 		if (e)
 			exit(EXIT_FAILURE);
 	}
+	fclose(file);
+	free_dlistint(head);
 	return (0);
 }
