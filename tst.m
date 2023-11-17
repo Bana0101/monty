@@ -5,5 +5,5 @@ push   0         mszehrfliuehrl
                                         
                        push                   7               
                                                                 pall 
-                                           swap
+                                           add
                                                        pall

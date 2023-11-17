@@ -121,6 +121,26 @@ void _swap(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	}
 }
 /**
+ * _add - a function that adds the top 2 elements
+ * @node: unused variable
+ * @line_number: the line number
+ * Return: void
+ */
+
+void _add(stack_t __attribute__((unused)) **node, unsigned int line_number)
+{
+	if (head == NULL || head->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	} else
+	{
+		head->next->n += head->n;
+		_pop(NULL, line_number);
+	}
+}
+
+/**
  * _nop - a function that doesn't do anything
  * @node: unused variable
  * @line_number: unused variable
