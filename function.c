@@ -46,6 +46,7 @@ void _pall(stack_t **node, unsigned int __attribute__((unused)) line_number)
 		while (ptr)
 		{
 			printf("%d\n", ptr->n);
+			fflush(stdout);
 			ptr = ptr->next;
 		}
 	}

@@ -30,9 +30,9 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 	}
 	if (strcmp(cmd[0], "push") == 0)
 	{
-		if (is_number(cmd[1]) == 0 || cmd[1][0] == '\0')
+		if ((is_number(cmd[1]) == 0 && atoi(cmd[1]) == 0) || cmd[1][0] == '\0')
 		{
-			printf("L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			return (1);
 		}
 		node->n = atoi(cmd[1]);
@@ -79,8 +79,11 @@ int is_number(char *str)
 	}
 	while (str[i])
 	{
-		if (!isdigit(str[i++]))
+		if (!isdigit(str[i]))
+		{
 			return (0);
+		}
+		i++;
 	}
 	return (1);
 }
