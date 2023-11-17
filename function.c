@@ -95,7 +95,31 @@ void _pop(stack_t __attribute__((unused)) **node, unsigned int line_number)
 		free(pop);
 	}
 }
+/**
+ * _swap - a function that swaps the top 2 elements
+ * @node: unused variable
+ * @line_number: the line number
+ * Return: void
+ */
 
+void _swap(stack_t __attribute__((unused)) **node, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (head == NULL || head->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	} else
+	{
+		tmp = head->next;
+		head->next = tmp->next;
+		head->prev = tmp;
+		tmp->next = head;
+		tmp->prev = NULL;
+		head = tmp;
+	}
+}
 /**
  * _nop - a function that doesn't do anything
  * @node: unused variable
