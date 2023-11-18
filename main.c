@@ -28,7 +28,7 @@ int main(int ac, char **av)
 	{
 		line_count++;
 		cmd = split(line, " ");
-		if (cmd[0][0] == '\n')
+		if (cmd[0][0] == '\n' || cmd[0][0] == '#')
 		{
 			for (i = 0; cmd[i] != NULL; i++)
 				free(cmd[i]);

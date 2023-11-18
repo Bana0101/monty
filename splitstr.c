@@ -17,9 +17,9 @@ char **split(char *txt, char *sep)
 	tok = strtok(txt, sep);
 	while (tok != NULL)
 	{
-		if (tok[0] == '#')
+	/*	if (tok[0] == '#')
 			break;
-		ptr[i] = malloc(strlen(tok) + 1);
+	*/	ptr[i] = malloc(strlen(tok) + 1);
 		if (ptr[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
