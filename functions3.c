@@ -89,7 +89,8 @@ void _pchar(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	if ((head->n >= 65 && head->n <= 90) || (head->n >= 97 && head->n <= 122))
 	{
 		printf("%c\n", (char)head->n);
+		fflush(stdout);
 		return;
 	}
-	fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 }
