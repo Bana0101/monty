@@ -24,3 +24,25 @@ void _div(stack_t __attribute__((unused)) **node, unsigned int line_number)
 		_pop(NULL, line_number);
 	}
 }
+
+/**
+ * _mul - a function multiplies the second top element with the top element
+ * @node: unused variable
+ * @line_number: the line number
+ * Return: void
+ */
+
+void _mul(stack_t __attribute__((unused)) **node, unsigned int line_number)
+{
+	if (head == NULL || head->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		head->next->n *= head->n;
+		_pop(&head, line_number);
+	}
+}
+

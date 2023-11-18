@@ -51,6 +51,7 @@ void _swap(stack_t **, unsigned int);
 void _add(stack_t **, unsigned int);
 void _sub(stack_t **, unsigned int);
 void _div(stack_t **, unsigned int);
+void _mul(stack_t **, unsigned int);
 /*void _pop(stack_t **, unsigned int);*/
 /*void _swap(stack_t **, unsigned int);*/
 /*void _add(stack_t **, unsigned int);*/
