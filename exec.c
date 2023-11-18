@@ -26,6 +26,7 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{"mul", _mul},
 		{"mod", _mod},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 

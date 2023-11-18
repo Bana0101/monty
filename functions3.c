@@ -93,4 +93,37 @@ void _pchar(stack_t __attribute__((unused)) **node, unsigned int line_number)
 		return;
 	}
 	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+	fflush(stdout);
+}
+
+
+/**
+ * _pstr -  prints the string at the top of the stack
+ * @node: unused variable
+ * @line_number: the line number
+ * Return: void
+ */
+
+void _pstr(stack_t __attribute__((unused)) **node, unsigned int line_number)
+{
+	stack_t *current;
+
+	(void)line_number;
+	if (head == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	current = head;
+	while (current)
+	{
+		if (current->n > 128 || current->n <= 0)
+			break;
+		if ((current->n >= 65 && current->n <= 90) || (current->n >= 97 && current->n <= 122))
+		{
+			printf("%c", (char)current->n);
+		}
+		current = current->next;
+	}
+	printf("\n");
 }
