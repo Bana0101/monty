@@ -40,6 +40,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void principal(FILE *);
 int exec(char **, unsigned int);
 int exec_queue(char **, unsigned int);
 char **split(char *txt, char *sep);
