@@ -117,7 +117,7 @@ void _pstr(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	current = head;
 	while (current)
 	{
-		if (current->n > 128 || current->n <= 0)
+		if (current->n >= 128 || current->n <= 0)
 			break;
 		if ((current->n >= 65 && current->n <= 90) || (current->n >= 97 && current->n <= 122))
 		{
