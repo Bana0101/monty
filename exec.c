@@ -28,6 +28,7 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 
