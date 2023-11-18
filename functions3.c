@@ -93,7 +93,7 @@ void _pchar(stack_t __attribute__((unused)) **node, unsigned int line_number)
 		return;
 	}
 	fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-	fflush(stdout);
+	exit(EXIT_FAILURE);
 }
 
 
