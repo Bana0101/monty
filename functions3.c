@@ -72,5 +72,24 @@ void _mod(stack_t __attribute__((unused)) **node, unsigned int line_number)
 	}
 }
 
+/**
+ * _pchar -  prints the char at the top of the stack
+ * @node: unused variable
+ * @line_number: the line number
+ * Return: void
+ */
 
-
+void _pchar(stack_t __attribute__((unused)) **node, unsigned int line_number)
+{
+	if (head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((head->n >= 65 && head->n <= 90) || (head->n >= 97 && head->n <= 122))
+	{
+		printf("%c\n", (char)head->n);
+		return;
+	}
+	fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+}
