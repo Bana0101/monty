@@ -41,8 +41,10 @@ typedef struct instruction_s
 } instruction_t;
 
 int exec(char **, unsigned int);
+int exec_queue(char **, unsigned int);
 char **split(char *txt, char *sep);
 void _push(stack_t **, unsigned int);
+void _push_queue(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
 void _pint(stack_t **, unsigned int);
 void _pop(stack_t **, unsigned int);
@@ -61,6 +63,7 @@ void _rotr(stack_t **, unsigned int);
 /*void _swap(stack_t **, unsigned int);*/
 /*void _add(stack_t **, unsigned int);*/
 char **_strtok(char *argv, char **table);
+char *_strdup(char *);
 stack_t *add_dnodeint(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
 

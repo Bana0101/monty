@@ -10,7 +10,7 @@ int main(int ac, char **av)
 {
 	FILE *file;
 	unsigned int line_count = 0;
-	char **cmd, line[200];
+	char **cmd, line[200], *opcode = "stack\n";
 	int e, i;
 
 	if (ac != 2)
@@ -35,7 +35,19 @@ int main(int ac, char **av)
 			free(cmd);
 			continue;
 		}
-		e = exec(cmd, line_count);
+		if (strcmp(cmd[0], "stack\n") == 0 || strcmp(cmd[0], "queue\n") == 0)
+		{
+			opcode = _strdup(cmd[0]);
+			continue;
+		}
+		if (strcmp(opcode, "stack\n") == 0)
+		{
+			e = exec(cmd, line_count);
+		}
+		if (strcmp(opcode, "queue\n") == 0)
+		{
+			e = exec_queue(cmd, line_count);
+		}
 		for (i = 0; cmd[i] != NULL; i++)
 			free(cmd[i]);
 		free(cmd);
