@@ -60,6 +60,7 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 	}
 	fclose(file);
+	free(format);
 	free_dlistint(head);
 	return (0);
 }
