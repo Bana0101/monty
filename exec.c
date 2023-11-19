@@ -15,7 +15,9 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 	stack_t *node;
 	instruction_t inst[] = {
 		{"push", _push},
-		{"pall", _pall},
+		{"pall", _nop},
+		{"queue", _nop},
+		{"stack", _nop},
 		{"pint", _pint},
 		{"pop", _pop},
 		{"swap", _swap},

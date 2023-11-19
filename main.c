@@ -10,7 +10,7 @@ int main(int ac, char **av)
 {
 	FILE *file;
 	unsigned int line_count = 0;
-	char **cmd, line[200];
+	char **cmd, line[200], *format = _strdup("stack");
 	int e, i;
 
 	if (ac != 2)
@@ -36,6 +36,12 @@ int main(int ac, char **av)
 			continue;
 		}
 		e = exec(cmd, line_count);
+		if (strcmp(cmd[0], "queue") == 0 || strcmp(cmd[0], "stack") == 0)
+			strcpy(format, cmd[0]);
+		if (strcmp(format, "queue") == 0 && strcmp(cmd[0], "pall") == 0)
+			_Qpall(&head, line_count);
+		if (strcmp(format, "stack") == 0 && strcmp(cmd[0], "pall") == 0)
+			_pall(&head, line_count);
 		for (i = 0; cmd[i] != NULL; i++)
 			free(cmd[i]);
 		free(cmd);
@@ -43,6 +49,7 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 	}
 	fclose(file);
+	free(format);
 	free_dlistint(head);
 	return (0);
 }
