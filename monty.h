@@ -42,11 +42,13 @@ typedef struct instruction_s
 
 void principal(FILE *);
 int exec(char **, unsigned int);
+int exec_stack(char **, unsigned int);
 int exec_queue(char **, unsigned int);
 char **split(char *txt, char *sep);
 void _push(stack_t **, unsigned int);
 void _push_queue(stack_t **, unsigned int);
 void _pall(stack_t **, unsigned int);
+void _Qpall(stack_t **, unsigned int);
 void _pint(stack_t **, unsigned int);
 void _pop(stack_t **, unsigned int);
 void _nop(stack_t **, unsigned int);

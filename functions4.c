@@ -77,3 +77,30 @@ void _push_queue(stack_t **node, unsigned int line_number)
 		(*node)->next = NULL;
 	}
 }
+
+/**
+ * _Qpall - a function that prints all the values on the stack(FIFO)
+ * @line_number: unused variable
+ * @node: the top of the stack
+ * Return: void
+ */
+
+
+void _Qpall(stack_t **node, unsigned int __attribute__((unused)) line_number)
+{
+	stack_t *ptr;
+
+	(void)node;
+	if (head != NULL)
+	{
+		ptr = head;
+		while (ptr->next)
+			ptr = ptr->next;
+		while (ptr)
+		{
+			printf("%d\n", ptr->n);
+			fflush(stdout);
+			ptr = ptr->prev;
+		}
+	}
+}

@@ -14,8 +14,8 @@ int exec_queue(char **cmd, unsigned int __attribute__((unused)) line_number)
 	int i = 0, found = 0;
 	stack_t *node;
 	instruction_t inst[] = {
-		{"push", _push_queue},
-		{"pall", _pall},
+		{"push", _push},
+		{"pall", _Qpall},
 		{"pint", _pint},
 		{"pop", _pop},
 		{"swap", _swap},

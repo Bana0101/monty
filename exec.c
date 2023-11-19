@@ -1,15 +1,15 @@
 #include "monty.h"
 
-int is_nb(char *str);
+int is_number(char *str);
 
 /**
- * exec_stack - execute command
+ * exec - execute command
  *@cmd: command
  *@line_number: number
  * Return: 0 on sucess.
  */
 
-int exec_stack(char **cmd, unsigned int __attribute__((unused)) line_number)
+int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 {
 	int i = 0, found = 0;
 	stack_t *node;
@@ -40,7 +40,7 @@ int exec_stack(char **cmd, unsigned int __attribute__((unused)) line_number)
 			fprintf(stderr, "Error: malloc failed\n");
 			return (1);
 		}
-		if (is_nb(cmd[1]) == 0 || cmd[1][0] == '\0')
+		if (is_number(cmd[1]) == 0 || cmd[1][0] == '\0')
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(node);
@@ -72,12 +72,12 @@ int exec_stack(char **cmd, unsigned int __attribute__((unused)) line_number)
 }
 
 /**
- * is_nb - a function that check a string if it isn't an integer
+ * is_number - a function that check a string if it isn't an integer
  * @str: the string
  * Return: 0 or 1
  */
 
-int is_nb(char *str)
+int is_number(char *str)
 {
 	int i = 0, j;
 

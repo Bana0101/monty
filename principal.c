@@ -33,7 +33,7 @@ void principal(FILE *file)
 		}
 		if (strcmp(format, "stack\n") == 0 ||
 				strcmp(format, "stack") == 0)
-			e = exec(cmd, line_count);
+			e = exec_stack(cmd, line_count);
 		if (strcmp(format, "queue") == 0 ||
 				strcmp(format, "queue\n") == 0)
 			e = exec_queue(cmd, line_count);

@@ -1,5 +1,5 @@
 queue
 push 98
 push 897
-stack Holberton
+queue Holberton
 pall

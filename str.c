@@ -17,7 +17,9 @@ char *_strdup(char *str)
 		;
 	p = (char *)malloc(size + 1);
 	if (p == NULL)
-		return (NULL);
+	{	fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 	for (i = 0; i <= size; i++)
 		p[i] = str[i];
 	return (p);
