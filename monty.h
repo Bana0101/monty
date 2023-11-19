@@ -41,7 +41,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void principal(FILE *);
-int exec(char **, unsigned int);
+int exec(char **, unsigned int, char *);
 int exec_stack(char **, unsigned int);
 int exec_queue(char **, unsigned int);
 char **split(char *txt, char *sep);

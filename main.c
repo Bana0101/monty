@@ -1,5 +1,7 @@
 #include "monty.h"
 stack_t *head = NULL;
+void get_format(char **cmd, char *format);
+
 /**
  * main - Entry point
  *@ac: number of args
@@ -35,13 +37,8 @@ int main(int ac, char **av)
 			free(cmd);
 			continue;
 		}
-		e = exec(cmd, line_count);
-		if (strcmp(cmd[0], "queue") == 0 || strcmp(cmd[0], "stack") == 0)
-			strcpy(format, cmd[0]);
-		if (strcmp(format, "queue") == 0 && strcmp(cmd[0], "pall") == 0)
-			_Qpall(&head, line_count);
-		if (strcmp(format, "stack") == 0 && strcmp(cmd[0], "pall") == 0)
-			_pall(&head, line_count);
+		get_format(cmd, format);
+		e = exec(cmd, line_count, format);
 		for (i = 0; cmd[i] != NULL; i++)
 			free(cmd[i]);
 		free(cmd);
@@ -52,4 +49,24 @@ int main(int ac, char **av)
 	free(format);
 	free_dlistint(head);
 	return (0);
+}
+
+/**
+ * get_format - a function that get format
+ * @cmd: the cmd
+ * @format: the format
+ * Return: void
+ */
+
+void get_format(char **cmd, char *format)
+{
+	int i;
+
+	for (i = 0; cmd[0][i]; i++)
+	{
+		if (cmd[0][i] == '\n')
+			cmd[0][i] = '\0';
+	}
+	if (strcmp(cmd[0], "queue") == 0 || strcmp(cmd[0], "stack") == 0)
+		strcpy(format, cmd[0]);
 }

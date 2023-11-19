@@ -4,18 +4,19 @@ int is_number(char *str);
 
 /**
  * exec - execute command
- *@cmd: command
- *@line_number: number
+ * @cmd: command
+ * @line_number: number
+ * @format: the format of the data
  * Return: 0 on sucess.
  */
 
-int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
+int exec(char **cmd, unsigned int line_number, char *format)
 {
 	int i = 0, found = 0;
 	stack_t *node;
 	instruction_t inst[] = {
-		{"push", _push},
-		{"pall", _nop},
+		{"push", _nop},
+		{"pall", _pall},
 		{"queue", _nop},
 		{"stack", _nop},
 		{"pint", _pint},
@@ -34,6 +35,7 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		{NULL, NULL}
 	};
 
+	(void)line_number;
 	if (strcmp(cmd[0], "push") == 0)
 	{
 		node = malloc(sizeof(stack_t));
@@ -50,12 +52,10 @@ int exec(char **cmd, unsigned int __attribute__((unused)) line_number)
 		}
 		node->n = atoi(cmd[1]);
 	}
-	while (cmd[0][i])
-	{
-		if (cmd[0][i] == '\n')
-			cmd[0][i] = '\0';
-		i++;
-	}
+	if (strcmp(format, "queue") == 0 && strcmp(cmd[0], "push") == 0)
+		_push_queue(&node, line_number);
+	if (strcmp(format, "stack") == 0 && strcmp(cmd[0], "push") == 0)
+		_push(&node, line_number);
 	for (i = 0; inst[i].opcode; i++)
 	{
 		if (strcmp(inst[i].opcode, cmd[0]) == 0)
